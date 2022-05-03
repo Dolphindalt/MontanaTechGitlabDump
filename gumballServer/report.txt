@@ -1,0 +1,148 @@
+1. Enter coins under amount for dispensing
+
+210 Greeting from the csdept10.cs.mtech.edu Gumball Server (v.2.1) at Monday, January 1, 0001 12:00:00 AM
+200 INVT R0:G3:Y3:B1
+210 Gumball Server Ready to dispense gumballs of value 20 upon receipt of coin
+COIN Q0:D1:N1
+200 RCVD Q0:D1:N1
+TURN
+200 DLTA -5
+ABRT
+200 RTRN Q0:D1:N1
+ABRT
+
+2. Enter coins over the amount required
+
+210 Greeting from the csdept10.cs.mtech.edu Gumball Server (v.2.1) at Monday, January 1, 0001 12:00:00 AM
+200 INVT R4:G1:Y3:B0
+210 Gumball Server Ready to dispense gumballs of value 20 upon receipt of coin
+COIN Q0:D1:N5
+200 RCVD Q0:D1:N5
+TURN
+200 DLTA 15 [RTRN Q0:D0:N3]
+200 BALL (R)
+ABRT
+
+3. Change value of the gumballs
+
+210 Greeting from the csdept10.cs.mtech.edu Gumball Server (v.2.1) at Monday, January 1, 0001 12:00:00 AM
+200 INVT R2:G2:Y3:B5
+210 Gumball Server Ready to dispense gumballs of value 15 upon receipt of coin
+BVAL 10
+200 BVAL 10
+COIN Q0:D2:N0
+200 RCVD Q0:D2:N0
+TURN
+200 DLTA 10 [RTRN Q0:D1:N0]
+200 BALL (R)
+ABRT
+
+4. Abort an attempt to retrieve a gumball
+
+210 Greeting from the csdept10.cs.mtech.edu Gumball Server (v.2.1) at Monday, January 1, 0001 12:00:00 AM
+200 INVT R3:G5:Y1:B0
+210 Gumball Server Ready to dispense gumballs of value 90 upon receipt of coin
+COIN Q4:D0:N0
+200 RCVD Q4:D0:N0
+ABRT
+200 RTRN Q0:D0:N0
+ABRT
+
+5. 400 Syntax Error
+
+210 Greeting from the csdept10.cs.mtech.edu Gumball Server (v.2.1) at Monday, January 1, 0001 12:00:00 AM
+200 INVT R2:G4:Y5:B2
+210 Gumball Server Ready to dispense gumballs of value 65 upon receipt of coin
+SACK OF ROME BY THE GOTHS
+400 Syntax Error
+410 SACK OF ROME BY THE GOTHS
+ABRT
+
+6. 420 Negative Denomination
+
+210 Greeting from the csdept10.cs.mtech.edu Gumball Server (v.2.1) at Monday, January 1, 0001 12:00:00 AM
+200 INVT R4:G5:Y3:B1
+210 Gumball Server Ready to dispense gumballs of value 75 upon receipt of coin
+COIN Q-2:D0:N1
+420 Negative Denomination
+410 COIN Q-2:D0:N1
+ABRT
+
+7. 421 Unrecognized Denomination
+
+210 Greeting from the csdept10.cs.mtech.edu Gumball Server (v.2.1) at Monday, January 1, 0001 12:00:00 AM
+200 INVT R4:G0:Y5:B0
+210 Gumball Server Ready to dispense gumballs of value 25 upon receipt of coin
+COIN D3:Q2:G1
+421 Unregonized Denomination
+410 COIN D3:Q2:G1
+ABRT
+
+8. 422 Denomination Too Large
+
+210 Greeting from the csdept10.cs.mtech.edu Gumball Server (v.2.1) at Monday, January 1, 0001 12:00:00 AM
+200 INVT R0:G2:Y5:B4
+210 Gumball Server Ready to dispense gumballs of value 30 upon receipt of coin
+COIN Q5:D3:N1
+422 Demonination too large
+410 COIN Q5:D3:N1
+ABRT
+
+9. 430 TURN not allowed
+
+210 Greeting from the csdept10.cs.mtech.edu Gumball Server (v.2.1) at Monday, January 1, 0001 12:00:00 AM
+200 INVT R1:G4:Y5:B2
+210 Gumball Server Ready to dispense gumballs of value 65 upon receipt of coin
+TURN
+430 TURN not allowed
+410 TURN
+ABRT
+
+10. 431 ABRT not allowed
+
+ABRT is never not allowed so output is omitted.
+
+11. 432 BVAL not allowed
+
+210 Greeting from the csdept10.cs.mtech.edu Gumball Server (v.2.1) at Monday, January 1, 0001 12:00:00 AM
+200 INVT R4:G0:Y5:B5
+210 Gumball Server Ready to dispense gumballs of value 50 upon receipt of coin
+COIN Q2:D2:N2
+200 RCVD Q2:D2:N2
+BVAL 2
+432 BVAL not allowed
+410 BVAL 2
+ABRT
+200 RTRN Q0:D0:N0
+ANRT
+400 Syntax Error
+410 ANRT
+ABRT
+
+12. 440 BVAL out of range
+
+210 Greeting from the csdept10.cs.mtech.edu Gumball Server (v.2.1) at Monday, January 1, 0001 12:00:00 AM
+200 INVT R0:G2:Y0:B3
+210 Gumball Server Ready to dispense gumballs of value 40 upon receipt of coin
+BVAL 2
+440 BVAL out of range
+410 BVAL 2
+BVAL 1001
+440 BVAL out of range
+410 BVAL 1001
+BVAL 101
+440 BVAL out of range
+410 BVAL 101
+BVAL 100
+200 BVAL 100
+ABRT
+
+13. 441 BVAL not a multiple of 5
+
+210 Greeting from the csdept10.cs.mtech.edu Gumball Server (v.2.1) at Monday, January 1, 0001 12:00:00 AM
+200 INVT R0:G1:Y3:B2
+210 Gumball Server Ready to dispense gumballs of value 75 upon receipt of coin
+BVAL 6
+441 BVAL not multiple of 5
+410 BVAL 6
+ABRT

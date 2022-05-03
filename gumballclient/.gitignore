@@ -1,0 +1,11 @@
+MyFSM/bin
+MyFSM/obj
+FSM/bin
+FSM/obj
+.vscode
+gumballServer/obj
+gumballServer/bin
+TriviaGame/TriviaServer/obj
+TriviaGame/TriviaServer/bin
+*.dep
+*.o

@@ -1,0 +1,6 @@
+genData
+*.dep
+*.o
+main-iterative
+main-process
+main-thread

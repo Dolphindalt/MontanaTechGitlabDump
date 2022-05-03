@@ -1,0 +1,48 @@
+Lab 1 Cowsay and such
+Dalton Caron
+August 19, 2020
+
+1. I did.
+
+2. 
+-k means keep open. The command will stay running so multiple clients (or the same over and over) 
+may connect. With -k, we can continue to execute the nc command without the ncat command terminating.
+
+3.
+files=(/usr/share/cowsay/cows/*)
+The files is the variable we are setting. The parentheses is a list of commands to be executed. 
+Since the string in the list has regex in it that will be evaluated, we need the list to store 
+all of the values we are going to obtain.
+
+echo ${files[$RANDOM%${#files[@]}]}
+echo prints the output to the terminal. The $ means to get the value of the variable we are dealing with.
+The curly braces executes the contents in the current shell context. We use $ to get the value of the 
+variable RANDOM which is a RANDOM number. files[@] gets all of the files in this list but # counts them and 
+returns an integer. This is all executed inside the current shell context by ${}. The random number mod 
+length of files is taken and then indexed to get a somewhat random file name. The file name is then 
+printed out with echo.
+
+4. 
+On line 1, we change files=(/usr/share/cowsay/cows/*) to (cd /usr/share/cowsay/cows && ls).
+Or on line 2, we can add the basename command echo `basename ${files[$RANDOM%${#files[@]}]}`.
+
+5.
+files=(/usr/share/cowsay/cows/*)
+file=`basename ${files[$RANDOM%${#files[@]}]}`
+fortune | cowsay -f $file
+
+6.
+files=(/usr/share/cowsay/cows/*)
+file=`basename ${files[$RANDOM%${#files[@]}]}`
+cowsay -f $file $(fortune)
+
+7.
+The syntax is strange but it seems to function as intended. The command is contained 
+within a string, so the slash that looks so strange is actually escaping the $.
+
+8.
+The first half of the command (left of the &&) sets up the network communication as described prior. 
+The difference is that the variable files is set in the bah script and then the random select is made 
+for the cowfile along with the input of fortune being provided. Everything is scoped appropriately to 
+execute before needed. For example, fortune executes before it is used in the cowsay command being 
+executed in our special bash section started by the -c "cowsay ...".
